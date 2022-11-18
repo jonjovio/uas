@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import model.User;
 
 /**
  *
@@ -43,8 +44,8 @@ public class Menu_tampilanPengguna implements ActionListener{
         title.setFont(new Font("Helvetica Neue", Font.BOLD, 30));
         title.setHorizontalAlignment(SwingConstants.CENTER);
         
-        buttonMainMenu = new JButton("BACK");
-        buttonMainMenu.setBounds(325, 450, 150, 50);
+        buttonMainMenu = new JButton("LOG OUT");
+        buttonMainMenu.setBounds(150, 450, 300, 50);
         buttonMainMenu.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
         buttonMainMenu.addActionListener(this);
         
@@ -61,6 +62,8 @@ public class Menu_tampilanPengguna implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == buttonMainMenu) {
             frameLogin.dispose();
+            User user = User.getUserInst();
+            user.deleteMemberInstance();
             new Menu_utama();
         }
     }

@@ -57,7 +57,7 @@ public class Menu_utama implements ActionListener{
         
         if (ae.getSource() == butRegis) {
             frameUtama.dispose();
-            new Menu_login();
+            new Menu_register();
         }
         
         if (ae.getSource() == lihatData) {

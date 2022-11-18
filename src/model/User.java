@@ -10,6 +10,8 @@ package model;
  * @author jonjovio
  */
 public class User {
+    
+    private static User userInst;
     private int userId;
     private String userName;
     private String userEmail;
@@ -29,6 +31,19 @@ public class User {
         this.userGender = userGender;
         this.userFollowers = userFollowers;
         this.userCategory = userCategory;
+    }
+    
+    public static User getUserInst(){
+        if(userInst==null){
+            userInst = new User();
+            System.out.println("Member instance created for the first time.");
+        }
+        return userInst;
+    }
+    
+    public void deleteMemberInstance(){
+        userInst = null;
+        System.out.println("Member instance deleted.");
     }
     
     public int getUserId() {

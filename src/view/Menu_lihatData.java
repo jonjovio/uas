@@ -14,9 +14,13 @@ import java.awt.event.ActionListener;
  */
 public class Menu_lihatData implements ActionListener{
 
+    public Menu_lihatData(){
+        
+    }
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
 }

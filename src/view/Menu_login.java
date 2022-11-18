@@ -79,7 +79,8 @@ public class Menu_login implements ActionListener{
             Controller ctrl = new Controller();
             if (ctrl.checkLogin(username.getText(), pass.getText())) {
                 JOptionPane.showMessageDialog(null, "LOGIN berhasil!", "Alert", JOptionPane.WARNING_MESSAGE);
-                
+                frameLogin.dispose();
+                new Menu_tampilanPengguna();
             }else{
                 JOptionPane.showMessageDialog(null, "LOGIN Gagal!", "Alert", JOptionPane.WARNING_MESSAGE);
             }

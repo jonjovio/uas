@@ -60,7 +60,7 @@ public class Controller {
     public boolean checkLogin(String username, String password){
         conn.connect();
         String query = "SELECT * FROM user WHERE userName='" + username + "'&& password='" + password + "'";
-        User user =  new User();
+        User user =  User.getUserInst();
         try {
             Statement stmt = conn.con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
