@@ -21,15 +21,34 @@ public class Controller {
     
     static DatabaseHandler conn = new DatabaseHandler();
     
-    public static ArrayList<String> getCategoryUser(){
+    public static ArrayList<String> getCategory(){
         conn.connect();
-        String query = "SELECT * FROM categoryuser";
+        String query = "SELECT categoryName FROM categoryuser";
         ArrayList<String> category = new ArrayList<>();
         try {
             Statement stmt = conn.con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 category.add(rs.getString("categoryName"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return category;
+    }
+    
+    public static ArrayList<CategoryUser> getCategoryUser(){
+        conn.connect();
+        String query = "SELECT * FROM categoryuser";
+        ArrayList<CategoryUser> category = new ArrayList<>();
+        try {
+            Statement stmt = conn.con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                CategoryUser cu = new CategoryUser();
+                cu.setCategoryId(rs.getInt("categoryName"));
+                cu.setCategoryName(rs.getString("categoryName"));
+                category.add(cu);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -77,6 +96,7 @@ public class Controller {
         }
         
         if (user.getUserName() == null) {
+            user.deleteMemberInstance();
             return false;
         }
         return true;

@@ -68,7 +68,7 @@ public class Menu_register implements ActionListener{
         JLabel labelKategori = new JLabel("Agama:");
         labelKategori.setBounds(50, 300, 100, 30);
 //        String kat[] = {"Private Account", "Creator Account", "Business Account"};
-        ArrayList<String> kat = ctrl.getCategoryUser();
+        ArrayList<String> kat = ctrl.getCategory();
         kategori = new JComboBox(new DefaultComboBoxModel<String>(kat.toArray(new String[0])));
         kategori.setBounds(200, 300, 250, 30);
         

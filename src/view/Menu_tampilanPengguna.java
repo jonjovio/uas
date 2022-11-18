@@ -38,8 +38,8 @@ public class Menu_tampilanPengguna implements ActionListener{
         img.setHorizontalAlignment(SwingConstants.CENTER);
         img.setIcon(image);
         
-        
-        JLabel title = new JLabel("BERHASIL LOGIN");
+        User user =  User.getUserInst();
+        JLabel title = new JLabel("Welcome " + user.getUserName());
         title.setBounds(90, 230, 400, 50);
         title.setFont(new Font("Helvetica Neue", Font.BOLD, 30));
         title.setHorizontalAlignment(SwingConstants.CENTER);
